@@ -22,7 +22,7 @@ async def cmd_list(event):
                     string += "    `" + str(iter_list) + "`"
                     string += "\n"
                 string += "\n"
-            if len(string) > 4095:
+            if len(string) > 69:
                 with io.BytesIO(str.encode(string)) as out_file:
                     out_file.name = "cmd.txt"
                     await bot.send_file(
