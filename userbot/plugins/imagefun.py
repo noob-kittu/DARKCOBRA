@@ -65,7 +65,7 @@ async def dc(event):
 @bot.on(admin_cmd(pattern=r"wst"))
 @bot.on(sudo_cmd(pattern=r"wst", allow_sudo=True))
 async def dc(event):
-    await event.edit("Making this image 😡triggered😈")    
+    await event.edit("What a Waste 😒😒")    
     dc = await event.get_reply_message()
     if isinstance(dc.media, MessageMediaPhoto):
         img = await borg.download_media(dc.media, pathdc)
