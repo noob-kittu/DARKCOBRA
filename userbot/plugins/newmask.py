@@ -11,66 +11,6 @@ if not os.path.isdir("./dcobra/"):
 # modified nd enhanced by @shivam_patel
 # @danish_00 did nothing 🙃🙂
 
-@bot.on(admin_cmd(pattern=r"cmask"))
-@bot.on(sudo_cmd(pattern=r"cmask", outgoing=True))
-
-async def scan(event):
-    path = "dcobra"
-     
-    kk = await event.edit("HeHe Lets give a Mask 🤪")
-
-
-    reply = await event.get_reply_message()
-    
-    lol = await borg.download_media(reply.media, path)
-    linc= event.text
-    link=linc[7:]
-    pic=linc[31:]
-    import cv2
-
-    os.system('wget https://datreon.000webhostapp.com/haarcascade_frontalface_default.xml')    
-    
-    os.system(f'wget {link}')
-    
-    imagePath = lol
-      
-    maskPath = f"{pic}"
-     
-    cascPath = "haarcascade_frontalface_default.xml"
-   
-    faceCascade = cv2.CascadeClassifier(cascPath)
-   
-    image = cv2.imread(imagePath)
-   
-    gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
-   
-    faces = faceCascade.detectMultiScale(gray, 1.15)
-   
-    background = Image.open(imagePath)
-   
-    for (x, y, w, h) in faces:
-        mask = Image.open(maskPath)
-        mask = mask.resize((w, h), Image.ANTIALIAS)
-        offset = (x, y)
-        background.paste(mask, offset, mask=mask)
-   
-    file_name = "old.png"
-   
-    hehe = path + "/" + file_name
-   
-    background.save(hehe, "PNG")
-   
-    await borg.send_file(event.chat_id, hehe)
-   
-
-    for files in (hehe, lol):
-        if files and os.path.exists(files):
-            os.remove(files)
-            
-            
-    hoi = await event.delete()
-
-
 
 
 
@@ -90,7 +30,7 @@ async def scan(event):
 
     os.system('wget https://datreon.000webhostapp.com/haarcascade_frontalface_default.xml')    
     
-    os.system('wget https://datreon.000webhostapp.com/mask.png')
+    os.system('wget https://telegra.ph/file/d449274b33387550508c4.png')
 
     imagePath = lol
     
@@ -114,7 +54,7 @@ async def scan(event):
         offset = (x, y)
         background.paste(mask, offset, mask=mask)
    
-    file_name = "thug.png"
+    file_name = "d449274b33387550508c4.png"
    
     hehe = path + "/" + file_name
    
@@ -494,6 +434,65 @@ async def scan(event):
     hoi = await event.delete()
     
     
- 
+@bot.on(admin_cmd(pattern=r"cmask"))
+@bot.on(sudo_cmd(pattern=r"cmask", outgoing=True))
+
+async def scan(event):
+    path = "dcobra"
+     
+    kk = await event.edit("HeHe Lets give a Mask 🤪")
+
+
+    reply = await event.get_reply_message()
+    
+    lol = await borg.download_media(reply.media, path)
+    linc= event.text
+    link=linc[7:]
+    pic=linc[31:]
+    import cv2
+
+    os.system('wget https://datreon.000webhostapp.com/haarcascade_frontalface_default.xml')    
+    
+    os.system(f'wget {link}')
+    
+    imagePath = lol
+      
+    maskPath = f"{pic}"
+     
+    cascPath = "haarcascade_frontalface_default.xml"
+   
+    faceCascade = cv2.CascadeClassifier(cascPath)
+   
+    image = cv2.imread(imagePath)
+   
+    gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
+   
+    faces = faceCascade.detectMultiScale(gray, 1.15)
+   
+    background = Image.open(imagePath)
+   
+    for (x, y, w, h) in faces:
+        mask = Image.open(maskPath)
+        mask = mask.resize((w, h), Image.ANTIALIAS)
+        offset = (x, y)
+        background.paste(mask, offset, mask=mask)
+   
+    file_name = "old.png"
+   
+    hehe = path + "/" + file_name
+   
+    background.save(hehe, "PNG")
+   
+    await borg.send_file(event.chat_id, hehe)
+   
+
+    for files in (hehe, lol):
+        if files and os.path.exists(files):
+            os.remove(files)
+            
+            
+    hoi = await event.delete()
+
+
 
 
